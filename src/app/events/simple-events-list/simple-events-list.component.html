@@ -3,4 +3,4 @@
   <li *ngFor="let event of events"><pre>{{ event | json }}</pre></li>
 </ul>
 <hr>
-<add-event-form></add-event-form>
+<add-event-form (eventAdded)="refreshEvents()"></add-event-form>

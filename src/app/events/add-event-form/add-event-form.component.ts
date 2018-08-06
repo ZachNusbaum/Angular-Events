@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { EventsService } from '../../events.service';
 
 @Component({
   selector: 'add-event-form',
@@ -6,14 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-event-form.component.css']
 })
 export class AddEventFormComponent implements OnInit {
+  @Output() eventAdded = new EventEmitter<Event>();
 
-  constructor() { }
+  constructor(private eventsApi: EventsService) { }
 
   ngOnInit() {
   }
 
   addEvent(event) {
     console.log(event);
+    this.eventsApi.addEvent(event).subscribe( (response: any) {
+      console.log('Event added!', response);
+      this.eventAdded.emit(event);
+    });
   }
 
 }

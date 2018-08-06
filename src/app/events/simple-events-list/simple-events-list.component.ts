@@ -19,4 +19,10 @@ export class SimpleEventsListComponent implements OnInit {
     });
   }
 
+  refreshEvents() {
+    this.eventsApi.listAll().subscribe( (data: Event[]) => {
+      this.events = data;
+    });
+  }
+
 }
