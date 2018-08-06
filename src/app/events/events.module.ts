@@ -5,14 +5,22 @@ import { SimpleEventsListComponent } from './simple-events-list/simple-events-li
 import { AddEventFormComponent } from './add-event-form/add-event-form.component';
 import { FormsModule } from '@angular/forms';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FullCalendarModule
   ],
-  declarations: [SimpleEventsListComponent, AddEventFormComponent, EventDetailComponent],
+  declarations: [
+    SimpleEventsListComponent,
+    AddEventFormComponent,
+    EventDetailComponent,
+    ScheduleComponent,
+  ],
   exports: [SimpleEventsListComponent]
 })
 export class EventsModule { }

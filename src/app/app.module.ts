@@ -1,3 +1,4 @@
+import { CalendarModule } from 'angular-calendar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     EventsModule,
-    HttpClientModule
+    HttpClientModule,
+    CalendarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

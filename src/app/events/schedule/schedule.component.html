@@ -1,0 +1,7 @@
+<p class="lead" *ngIf="!calendarOptions">
+  Loading...
+</p>
+<div *ngIf="calendarOptions">
+    <ng-fullcalendar #ucCalendar (eventClick)="eventClicked($event)" [options]="calendarOptions" [(eventsModel)]="events"></ng-fullcalendar>
+</div>
+<add-event-form (eventAdded)="refreshCalendar()" ></add-event-form>
