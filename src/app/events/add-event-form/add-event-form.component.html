@@ -1,17 +1,17 @@
 <form (ngSubmit)="addEvent(eventForm)" #eventForm="ngForm">
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" name="title" [(ngModel)]="eventForm.value.title" #title>
+    <input type="text" name="title" [(ngModel)]="eventForm.value.title" #title required>
   </div>
 
   <div class="form-group">
     <label for="starts_at">Starts at</label>
-    <input type="datetime" name="starts_at" [(ngModel)]="eventForm.value.starts_at" #startsAt>
+    <input type="datetime" name="starts_at" [(ngModel)]="eventForm.value.starts_at" #startsAt required>
   </div>
 
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea name="description" cols="30" rows="10" [(ngModel)]="eventForm.value.description" #description></textarea>
+    <textarea name="description" cols="30" rows="10" [(ngModel)]="eventForm.value.description" #description required></textarea>
   </div>
 
   <div class="form-group">

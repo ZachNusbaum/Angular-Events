@@ -15,11 +15,15 @@ export class AddEventFormComponent implements OnInit {
   }
 
   addEvent(event) {
+    if (event.invalid === true) { return false; }
     console.log(event);
     this.eventsApi.addEvent(event.value).subscribe( (response: any) => {
       console.log('Event added!', response);
       this.eventAdded.emit(event.value);
       event.reset();
+    }, (error: any) => {
+      alert('There was an error adding the event. Check the console.');
+      console.log('Error:', error);
     });
   }
 
