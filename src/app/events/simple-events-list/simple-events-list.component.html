@@ -1,7 +1,9 @@
 <h4>Simple List</h4>
 <ul>
   <li *ngFor="let event of events">
-    <h5>{{event.title}}</h5>
+    <h5>
+      <a routerLink="/event/{{event.id}}">{{event.title}}</a>
+    </h5>
     <p>{{event.starts_at}}</p>
     <p>{{event.description}}</p>
   </li>
