@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let event of events">
     <h5>
-      <a routerLink="/event/{{event.id}}">{{event.title}}</a>
+      <a routerLink="/event/{{event.token}}">{{event.title}}</a>
     </h5>
     <p>{{event.starts_at}}</p>
     <p>{{event.description}}</p>

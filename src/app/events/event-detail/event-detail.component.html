@@ -1,3 +1,15 @@
-<p>
-  event-detail works!
+<p *ngIf="!event">
+  Loading...
 </p>
+
+<div *ngIf="!!event">
+    <pre>
+    </pre>
+    <h2>{{ event.title }}</h2>
+    {{ event.starts_at | date:'medium' }}
+    <span *ngIf="!!event.ends_at">until {{ event.ends_at | date:'medium' }}</span>
+    <p class="lead">
+      {{ event.description }}
+    </p>
+    <a routerLink="/" class="btn btn-primary">Back</a>
+</div>

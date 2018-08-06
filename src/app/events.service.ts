@@ -17,4 +17,8 @@ export class EventsService {
   addEvent(values: Event) {
     return this.http.post(api_base + 'events.json', values);
   }
+
+  getEvent(id) {
+    return this.http.get(api_base + `events/${id}.json`);
+  }
 }
