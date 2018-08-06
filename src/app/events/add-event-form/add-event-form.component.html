@@ -1,4 +1,4 @@
-<form (ngSubmit)="addEvent(eventForm.value)" #eventForm="ngForm">
+<form (ngSubmit)="addEvent(eventForm)" #eventForm="ngForm">
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" name="title" [(ngModel)]="eventForm.value.title" #title>

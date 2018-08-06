@@ -1,5 +1,6 @@
+import { AddEventFormComponent } from './../add-event-form/add-event-form.component';
 import { EventsService } from './../../events.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Event } from '../../event';
 
 @Component({
@@ -8,6 +9,7 @@ import { Event } from '../../event';
   styleUrls: ['./simple-events-list.component.css']
 })
 export class SimpleEventsListComponent implements OnInit {
+  @ViewChild(AddEventFormComponent) eventForm = AddEventFormComponent;
 
   constructor(private eventsApi: EventsService) { }
 

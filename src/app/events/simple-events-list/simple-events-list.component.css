@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+}
+ul h5 {
+  color: red;
+}
+ul p {
+  color: gray;
+  font-style: italic;
+}
