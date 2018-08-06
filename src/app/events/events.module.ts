@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { FullCalendarModule } from 'ng-fullcalendar';
+import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    FullCalendarModule
+    FullCalendarModule,
+    DlDateTimePickerDateModule
   ],
   declarations: [
     SimpleEventsListComponent,

@@ -8,6 +8,7 @@ import { EventsService } from '../../events.service';
 })
 export class AddEventFormComponent implements OnInit {
   @Output() eventAdded = new EventEmitter<Event>();
+  start_date: Date;
 
   constructor(private eventsApi: EventsService) { }
 
@@ -25,6 +26,11 @@ export class AddEventFormComponent implements OnInit {
       alert('There was an error adding the event. Check the console.');
       console.log('Error:', error);
     });
+  }
+
+  startDateChanged(event) {
+    console.log('Start date changed', event);
+    this.start_date = event.value;
   }
 
 }
