@@ -41,7 +41,8 @@ export class ScheduleComponent implements OnInit {
       this.calendarOptions = {
         editable: true,
         eventLimit: false,
-        events: response
+        events: response,
+        timezone: 'local'
       };
     });
   }
