@@ -19,6 +19,9 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
     background_color: '#008B8B'
   };
 
+  f1: any;
+  f2: any;
+
   start_date: Date;
   @ViewChild('startsAt') startsAt: ElementRef;
   @ViewChild('endsAt') endsAt: ElementRef;
@@ -29,14 +32,14 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    flatpickr(this.startsAt.nativeElement, {
+    this.f1 = flatpickr(this.startsAt.nativeElement, {
       enableTime: true,
       altFormat: 'F j, Y h:i K',
       altInput: true,
       dateFormat: 'Z',
       defaultDate: this.model.starts_at
     });
-    flatpickr(this.endsAt.nativeElement, {
+    this.f2 = flatpickr(this.endsAt.nativeElement, {
       enableTime: true,
       altFormat: 'F j, Y h:i K',
       altInput: true,
@@ -48,9 +51,13 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
     if (event.invalid === true) { return false; }
     console.log(event);
     this.eventsApi.addEvent(event.value).subscribe( (response: any) => {
-      console.log('Event added!', response);
       this.eventAdded.emit(event.value);
-      event.reset();
+      event.reset(); // Reset the form values
+
+      // Clear the datepickers
+      this.startsAt.nativeElement._flatpickr.clear();
+      this.endsAt.nativeElement._flatpickr.clear();
+
     }, (error: any) => {
       alert('There was an error adding the event. Check the console.');
       console.log('Error:', error);

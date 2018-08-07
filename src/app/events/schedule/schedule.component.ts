@@ -42,7 +42,12 @@ export class ScheduleComponent implements OnInit {
         editable: true,
         eventLimit: false,
         events: response,
-        timezone: 'local'
+        timezone: 'local',
+        header: {
+          left: 'title',
+          center: 'month,listMonth,agendaWeek',
+          right: 'today prev,next'
+        }
       };
     });
   }
