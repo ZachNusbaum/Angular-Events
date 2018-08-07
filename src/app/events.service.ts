@@ -18,15 +18,15 @@ export class EventsService {
     return this.http.post(api_base + 'events.json', values);
   }
 
-  getEvent(id) {
+  getEvent(id: string) {
     return this.http.get(api_base + `events/${id}.json`);
   }
 
-  deleteEvent(id) {
+  deleteEvent(id: string) {
     return this.http.delete(api_base + `events/${id}.json`);
   }
 
-  updateEvent(id, values) {
+  updateEvent(id: string, values: any) {
     return this.http.patch(api_base + `events/${id}.json`, values);
   }
 }

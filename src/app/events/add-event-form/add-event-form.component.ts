@@ -34,7 +34,7 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
     });
   }
 
-  addEvent(event) {
+  addEvent(event): boolean | void {
     if (event.invalid === true) { return false; }
     console.log(event);
     this.eventsApi.addEvent(event.value).subscribe( (response: any) => {
@@ -47,7 +47,7 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
     });
   }
 
-  startDateChanged(event) {
+  startDateChanged(event): void {
     console.log('Start date changed', event);
     this.start_date = event.value;
   }

@@ -2,14 +2,15 @@ import { EventsService } from './../../events.service';
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'fullcalendar';
 import { Router } from '@angular/router';
+import { Event } from '../../event';
 @Component({
   selector: 'events-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
-  events: any[] = [];
-  viewDate = Date.now();
+  events: Event[] = [];
+  viewDate: number = Date.now();
   calendarOptions: Options;
 
   constructor(private eventsApi: EventsService, private route: Router) { }
@@ -18,24 +19,24 @@ export class ScheduleComponent implements OnInit {
     this.refreshCalendar();
   }
 
-  eventClicked(event) {
+  eventClicked(event: CustomEvent): void {
     console.log(event);
     this.route.navigateByUrl(`/event/${event.detail.event.token}`);
   }
-  eventDropped(event: any) {
+  eventDropped(event: CustomEvent): void {
     console.log('Dropped!', event);
-    let changes = {
+    const changes = {
       starts_at: event.detail.event.start,
       ends_at: event.detail.event.end
     };
     this.eventsApi.updateEvent(event.detail.event.token, changes).subscribe(
-      (response: any) => { alert('Event updated!'); },
+      (response: Event) => { alert('Event updated!'); console.log('Updated!', response); },
       (error: any) => { console.error('Could not update', error); }
     );
   }
 
-  refreshCalendar() {
-    this.eventsApi.listAll().subscribe((response: Object[]) => {
+  refreshCalendar(): void {
+    this.eventsApi.listAll().subscribe((response: Event[]) => {
       this.events = response;
       this.calendarOptions = {
         editable: true,
