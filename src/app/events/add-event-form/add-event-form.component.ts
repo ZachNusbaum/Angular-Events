@@ -13,7 +13,7 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
 
   model: Event = {
     title: '',
-    starts_at: '',
+    starts_at: new Date(),
     ends_at: null,
     description: '',
     background_color: '#008B8B'
@@ -34,6 +34,7 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
       altFormat: 'F j, Y h:i K',
       altInput: true,
       dateFormat: 'Z',
+      defaultDate: this.model.starts_at
     });
     flatpickr(this.endsAt.nativeElement, {
       enableTime: true,

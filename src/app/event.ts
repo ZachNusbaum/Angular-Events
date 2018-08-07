@@ -1,9 +1,9 @@
 export interface Event {
   id?: number;
   title: string;
-  starts_at: string;
+  starts_at: string | number | Date;
   starts?: any;
-  ends_at?: string;
+  ends_at?: string | number | Date;
   ends?: any;
   description: string;
   token?: string;

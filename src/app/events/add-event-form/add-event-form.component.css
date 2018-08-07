@@ -1,3 +1,14 @@
 .fc-content {
   color: white !important;
 }
+
+input.ng-dirty.ng-invalid, textarea.ng-dirty.ng-invalid {
+  border: 5px solid red;
+}
+input.ng-dirty.ng-valid, textarea.ng-dirty.ng-valid {
+  border: 5px solid green;
+}
+
+input:active {
+  border: 5px solid blue;
+}

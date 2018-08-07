@@ -1,7 +1,14 @@
 <p class="lead" *ngIf="!calendarOptions">
   Loading...
 </p>
+
 <div *ngIf="calendarOptions">
-    <ng-fullcalendar #ucCalendar (eventDrop)="eventDropped($event)" (eventClick)="eventClicked($event)" [options]="calendarOptions" [(eventsModel)]="events"></ng-fullcalendar>
+  <div class="row">
+    <div class="col-md-8">
+      <ng-fullcalendar #ucCalendar (eventDrop)="eventDropped($event)" (eventClick)="eventClicked($event)" [options]="calendarOptions" [(eventsModel)]="events"></ng-fullcalendar>
+    </div>
+    <div class="col-md-4">
+      <add-event-form (eventAdded)="refreshCalendar()" ></add-event-form>
+    </div>
+  </div>
 </div>
-<add-event-form (eventAdded)="refreshCalendar()" ></add-event-form>
