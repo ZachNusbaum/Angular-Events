@@ -25,4 +25,8 @@ export class EventsService {
   deleteEvent(id) {
     return this.http.delete(api_base + `events/${id}.json`);
   }
+
+  updateEvent(id, values) {
+    return this.http.patch(api_base + `events/${id}.json`, values);
+  }
 }

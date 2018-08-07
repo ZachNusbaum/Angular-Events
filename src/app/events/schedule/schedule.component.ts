@@ -22,8 +22,16 @@ export class ScheduleComponent implements OnInit {
     console.log(event);
     this.route.navigateByUrl(`/event/${event.detail.event.token}`);
   }
-  eventDropped(event) {
+  eventDropped(event: any) {
     console.log('Dropped!', event);
+    let changes = {
+      starts_at: event.detail.event.start,
+      ends_at: event.detail.event.end
+    };
+    this.eventsApi.updateEvent(event.detail.event.token, changes).subscribe(
+      (response: any) => { alert('Event updated!'); },
+      (error: any) => { console.error('Could not update', error); }
+    );
   }
 
   refreshCalendar() {
