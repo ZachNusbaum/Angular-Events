@@ -21,4 +21,8 @@ export class EventsService {
   getEvent(id) {
     return this.http.get(api_base + `events/${id}.json`);
   }
+
+  deleteEvent(id) {
+    return this.http.delete(api_base + `events/${id}.json`);
+  }
 }

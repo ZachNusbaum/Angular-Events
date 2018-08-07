@@ -12,6 +12,7 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
 
   start_date: Date;
   @ViewChild('startsAt') startsAt: ElementRef;
+  @ViewChild('endsAt') endsAt: ElementRef;
 
   constructor(private eventsApi: EventsService) { }
 
@@ -20,6 +21,12 @@ export class AddEventFormComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     flatpickr(this.startsAt.nativeElement, {
+      enableTime: true,
+      altFormat: 'F j, Y h:i K',
+      altInput: true,
+      dateFormat: 'Z',
+    });
+    flatpickr(this.endsAt.nativeElement, {
       enableTime: true,
       altFormat: 'F j, Y h:i K',
       altInput: true,

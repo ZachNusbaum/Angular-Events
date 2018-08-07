@@ -11,5 +11,9 @@
     <p class="lead">
       {{ event.description }}
     </p>
-    <a routerLink="/" class="btn btn-primary">Back</a>
+    <div class="btn-group">
+      <a routerLink="/" class="btn btn-primary">Back</a>
+      <a (click)="deleteEvent()" class="btn btn-danger text-white">Delete</a>
+    </div>
+    
 </div>
