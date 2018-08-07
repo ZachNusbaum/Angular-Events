@@ -9,5 +9,7 @@ export interface Event {
   token?: string;
   created_at?: string;
   updated_at?: string;
-  url: string;
+  url?: string;
+  background_color?: string;
+  backgroundColor?: string;
 }

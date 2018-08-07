@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { EventsService } from '../../events.service';
+import { Event } from '../../event';
 import flatpickr from 'flatpickr';
 
 @Component({
@@ -9,6 +10,14 @@ import flatpickr from 'flatpickr';
 })
 export class AddEventFormComponent implements OnInit, AfterViewInit {
   @Output() eventAdded = new EventEmitter<Event>();
+
+  model: Event = {
+    title: '',
+    starts_at: '',
+    ends_at: null,
+    description: '',
+    background_color: '#008B8B'
+  };
 
   start_date: Date;
   @ViewChild('startsAt') startsAt: ElementRef;
