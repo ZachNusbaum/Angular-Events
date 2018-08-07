@@ -6,8 +6,7 @@
 
   <div class="form-group">
     <label for="starts_at">Starts at</label>
-    <input type="datetime" class="form-control" name="starts_at" [(ngModel)]="start_date" #startsAt required>
-    <dl-date-time-picker (change)="startDateChanged($event)"></dl-date-time-picker>
+    <input type="datetime-local" name="starts_at" [(ngModel)]="eventForm.value.starts_at" #startsAt>
   </div>
 
   <div class="form-group">

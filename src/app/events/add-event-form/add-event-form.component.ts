@@ -1,18 +1,30 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { EventsService } from '../../events.service';
+import flatpickr from 'flatpickr';
 
 @Component({
   selector: 'add-event-form',
   templateUrl: './add-event-form.component.html',
   styleUrls: ['./add-event-form.component.css']
 })
-export class AddEventFormComponent implements OnInit {
+export class AddEventFormComponent implements OnInit, AfterViewInit {
   @Output() eventAdded = new EventEmitter<Event>();
+
   start_date: Date;
+  @ViewChild('startsAt') startsAt: ElementRef;
 
   constructor(private eventsApi: EventsService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    flatpickr(this.startsAt.nativeElement, {
+      enableTime: true,
+      altFormat: 'F j, Y h:i K',
+      altInput: true,
+      dateFormat: 'Z',
+    });
   }
 
   addEvent(event) {

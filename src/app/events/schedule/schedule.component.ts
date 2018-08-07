@@ -22,6 +22,9 @@ export class ScheduleComponent implements OnInit {
     console.log(event);
     this.route.navigateByUrl(`/event/${event.detail.event.token}`);
   }
+  eventDropped(event) {
+    console.log('Dropped!', event);
+  }
 
   refreshCalendar() {
     this.eventsApi.listAll().subscribe((response: Object[]) => {

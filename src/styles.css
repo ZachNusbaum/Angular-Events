@@ -1,2 +1,4 @@
 @import "../node_modules/fullcalendar/dist/fullcalendar.css";
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css";
